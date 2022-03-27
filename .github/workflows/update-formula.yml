@@ -17,4 +17,5 @@ jobs:
             --version ${{ github.event.client_payload.version }} \
             --linux-sha ${{ github.event.client_payload.linux_sha }} \
             --macos-sha ${{ github.event.client_payload.macos_sha }}
+      - run: cat Formula/*
 
