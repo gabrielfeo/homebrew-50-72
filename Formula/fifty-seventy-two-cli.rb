@@ -11,7 +11,7 @@ class FiftySeventyTwoCli < Formula
   end
 
   def install
-    bin.install "50-72"
+    bin.install "bin/50-72"
   end
 
   test do
