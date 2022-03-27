@@ -19,5 +19,13 @@ jobs:
             --version ${{ github.event.client_payload.version }} \
             --linux-sha ${{ github.event.client_payload.linux_sha }} \
             --macos-sha ${{ github.event.client_payload.macos_sha }}
-      - run: cat Formula/*
-
+          echo "::group::Updated formula"
+          cat Formula/*
+          echo "::endgroup::"
+      - name: Submit PR
+        uses: peter-evans/create-pull-request@v4.0.0
+        with:
+          title: Update CLI formula for v${{ github.event.client_payload.version }}
+          body: Triggered from ${{ github.event.client_payload.trigger_source_url }}.
+          add-paths: Formula/*
+          author: Update Formula Workflow <gabriel@gabrielfeo.com>
