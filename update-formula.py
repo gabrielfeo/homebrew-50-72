@@ -21,3 +21,8 @@ with FileInput(FORMULA_PATH, inplace=True) as file:
             print(f"  macos_sha = \"{args.macos_sha}\"")
         else:
             print(line, end='')
+
+print("::group::Updated formula")
+with open(FORMULA_PATH, 'r') as file:
+    print(file.read())
+print("::endgroup::")
