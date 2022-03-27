@@ -4,8 +4,8 @@ class FiftySeventyTwoCli < Formula
   license "MIT"
 
   version = "v0.0.1"
-  linux_sha = "3fdf0f769c4eacda0e16386daf193471ef5710f9ce230d24d9c781701ac3cd64"
-  macos_sha = "89e63f35914ba3614d690184e4f897236da6eca564f090608e3233c10ffe3df3"
+  linux_sha = "cfdda76a042c1c5eb30859ed287678385028dc4985276370da762aa44fcd06e1"
+  macos_sha = "d92ec5657deb2e795571bc9dfc204107145d4cce2b4167fa3484cbf00febfb45"
 
   if OS.mac?
     url "https://github.com/gabrielfeo/50-72/releases/download/v0.0.1/50-72-#{version}-macosX64.zip"
