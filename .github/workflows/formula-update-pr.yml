@@ -1,0 +1,30 @@
+name: Submit formula update PR
+
+on:
+  repository_dispatch:
+    types: [update-formula]
+
+jobs:
+  submit-update-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3.0.0
+      - name: Update formula code
+        run: |
+          .github/steps/update-formula.py \
+            --version ${{ github.event.client_payload.version }} \
+            --linux-sha ${{ github.event.client_payload.linux_sha }} \
+            --macos-sha ${{ github.event.client_payload.macos_sha }}
+      - name: Submit PR
+        uses: peter-evans/create-pull-request@v4.0.0
+        with:
+          commit-message: Update CLI formula for ${{ github.event.client_payload.version }}
+          title: Update CLI formula for ${{ github.event.client_payload.version }}
+          body: Triggered from ${{ github.event.client_payload.trigger_source_url }}.
+          add-paths: Formula/*
+          branch: chore/update-${{ github.event.client_payload.version }}
+          author: Gabriel Feo <gabriel@gabrielfeo.com>
+          reviewers: gabrielfeo
