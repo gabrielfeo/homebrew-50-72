@@ -8,10 +8,10 @@ class FiftySeventyTwoCli < Formula
   macos_sha = "60257abf24604114ed1bd599960f34805a79a4d534cb52fe5cde3c76b8ac9d83"
 
   if OS.mac?
-    url "https://github.com/gabrielfeo/50-72/releases/download/v0.0.1/50-72-#{version}-macosX64.zip"
+    url "https://github.com/gabrielfeo/50-72/releases/download/cli/v0.0.1/50-72-#{version}-macosX64.zip"
     sha256 macos_sha
   elsif OS.linux?
-    url "https://github.com/gabrielfeo/50-72/releases/download/v0.0.1/50-72-#{version}-linuxX64.zip"
+    url "https://github.com/gabrielfeo/50-72/releases/download/cli/v0.0.1/50-72-#{version}-linuxX64.zip"
     sha256 linux_sha
   end
 
